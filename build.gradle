@@ -1,0 +1,78 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.2.31'
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha13'
+
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    minSdkVersionProject = 16
+    targetSdkVersionProject = 27
+    compileSdkVersionProject = 27
+    buildToolsVersionProject = '27.0.3'
+
+    sourceCompatibilityVersion = JavaVersion.VERSION_1_8
+    targetCompatibilityVersion = JavaVersion.VERSION_1_8
+    retrolambdaJavaVersion = JavaVersion.VERSION_1_8
+
+    supportLibraryVersion = '27.1.1'
+    guavaVersion = '19.0'
+
+    junit = '4.12'
+
+    constraintlayout = '1.1.0'
+
+    okhttp = '3.10.0'
+
+    retrofit = '2.4.0'
+    converterMoshi = '2.4.0'
+    adapterRxjava = '2.4.0'
+
+    moshi = '1.5.0'
+
+    rxandroid = '2.0.2'
+    rxjava = '2.1.13'
+    rxpermissions = '0.9.5'
+
+    rxbinding = '2.1.1'
+    rxrelay = '2.0.0'
+
+    powerfulAdapter = '1.0.0'
+    powerfulAdapterLib = '1.0.0@aar'
+
+    glide = '4.7.1'
+
+    //extra
+    aligntextview = '2.3.0'
+    circleimageview = '2.1.0'
+}

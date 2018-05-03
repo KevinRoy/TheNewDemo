@@ -1,0 +1,71 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersionProject
+    buildToolsVersion = '27.0.3'
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersionProject
+        targetSdkVersion rootProject.ext.targetSdkVersionProject
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.sourceCompatibilityVersion
+        targetCompatibility rootProject.ext.targetCompatibilityVersion
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force "com.android.support:support-annotations:$rootProject.ext.supportLibraryVersion"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    testImplementation "junit:junit:$rootProject.junit"
+
+    api "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    api "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    api "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    api "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    api "com.android.support:design:$rootProject.supportLibraryVersion"
+    api "com.google.guava:guava:$rootProject.guavaVersion"
+
+    androidTestImplementation "com.android.support:support-annotations:$rootProject.guavaVersion"
+
+    api "com.squareup.okhttp3:okhttp:$rootProject.okhttp"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp"
+    api "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.okhttp"
+
+    api "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    api "com.squareup.retrofit2:converter-moshi:$rootProject.converterMoshi"
+    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.adapterRxjava"
+    api "com.squareup.moshi:moshi:$rootProject.moshi"
+
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid"
+    api "io.reactivex.rxjava2:rxjava:$rootProject.rxjava"
+
+    api "com.jakewharton.rxrelay2:rxrelay:$rootProject.rxrelay"
+
+    api "com.jakewharton.rxbinding2:rxbinding:$rootProject.rxbinding"
+    api "com.jakewharton.rxbinding2:rxbinding-support-v4:$rootProject.rxbinding"
+    api "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rootProject.rxbinding"
+
+    api "com.github.bumptech.glide:glide:$rootProject.glide"
+
+    api "com.tbruyelle.rxpermissions2:rxpermissions:$rootProject.rxpermissions"
+    api "me.codeboy.android:align-text-view:$rootProject.aligntextview"
+}
