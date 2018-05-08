@@ -1,1 +1,1 @@
-include ':app', ':kglib'
+include ':app', ':kglib', ':imgselectlib'
